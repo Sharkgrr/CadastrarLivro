@@ -1,21 +1,25 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Cliente } from '../clientes/cliente.model';
+import { Livro } from '../clientes/cliente.model';
 @Component({
 selector: 'app-cliente-inserir',
 templateUrl: './cliente-inserir.component.html',
 styleUrls: ['./cliente-inserir.component.css'],
 })
 export class ClienteInserirComponent {
-@Output() clienteAdicionado = new EventEmitter<Cliente>();
-nome: string;
-fone: string;
-email: string;
+@Output() livroAdicionado = new EventEmitter<Livro>();
+
+id: string;
+titulo: string;
+autor: string;
+paginas: Int16Array;
+
 onAdicionarCLiente() {
-const cliente: Cliente = {
-nome: this.nome,
-fone: this.fone,
-email: this.email,
+const livro: Livro = {
+id: this.id,
+titulo: this.titulo,
+autor: this.autor,
+paginas: this.paginas
 };
-this.clienteAdicionado.emit(cliente);
+this.livroAdicionado.emit(livro);
 }
 }
